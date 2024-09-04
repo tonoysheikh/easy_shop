@@ -9,7 +9,7 @@
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #222222; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #172a28; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #008374; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --accent-color: #004D91; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -40,7 +40,7 @@
 }
 
 .accent-background {
-  --background-color: #008374;
+  --background-color: #004d91;
   --default-color: #ffffff;
   --heading-color: #ffffff;
   --accent-color: #ffffff;
@@ -220,7 +220,7 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: #008374;
+  --background-color: #004D91;
   --heading-color: #ffffff;
   color: var(--default-color);
   transition: all 0.5s;
@@ -972,10 +972,10 @@ section,
 }
 
 .hero .icon-box {
-  padding: 60px 30px;
+  padding: 15px 15px;
   position: relative;
   overflow: hidden;
-  background: var(--background-color);
+  background: #004D91;
   box-shadow: 0 0 29px 0 rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
   border-radius: 8px;
@@ -984,11 +984,18 @@ section,
   width: 100%;
   text-align: center;
 }
+.title-design{
+  font-size:16px;
+  text-align: center;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.9);
+  padding: 15px 0;
+}
 
 .hero .icon-box .title {
   font-weight: 700;
   margin-bottom: 15px;
-  font-size: 24px;
+  font-size: 16px;
 }
 
 .hero .icon-box .title a {
