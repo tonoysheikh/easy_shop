@@ -75,15 +75,18 @@
             <ul>
               <li>
                 <div class="input-group">
-                  <input
-                    type="email"
-                    class="input"
-                    id="Email"
-                    name="Email"
-                    placeholder="Search...."
-                    autocomplete="off"
-                  />
-                  <input class="button--submit" value="Search" type="submit" />
+                  <form method="GET" class = "service-form" style = "width:150vh;text-align:center;">
+                    <input
+                      type="text"
+                      class="input"
+                      id="text"
+                      name="text"
+                      placeholder="Search...."
+                      autocomplete="off"
+                      value="{{ request.GET.search }}" 
+                    />
+                    <input class="button--submit" value="Search" type="submit" />
+                </form>
                 </div>
               </li>
             </ul>
@@ -98,18 +101,15 @@
         <div
           class="heading"
           style="
-            background-image: url(https://c1.wallpaperflare.com/preview/3/31/590/filmmaker-youtuber-script-screenwriter.jpg);
+            background-image: url(https://images.pexels.com/photos/1000445/pexels-photo-1000445.jpeg?cs=srgb&dl=pexels-belle-co-99483-1000445.jpg&fm=jpg); 
           "
         >
           <div class="container">
             <div class="row d-flex justify-content-center text-center">
               <div class="col-lg-8">
-                <h1>Health & Care</h1>
+                <h1>All services</h1>
                 <p class="mb-0">
-                  Odio et unde deleniti. Deserunt numquam exercitationem.
-                  Officiis quo odio sint voluptas consequatur ut a odio
-                  voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi
-                  ratione sint. Sit quaerat ipsum dolorem.
+                  A customer is the most important visitor on our premises, he is not dependent on us. We are dependent on him. He is not an interruption in our work. He is the purpose of it. He is not an outsider in our business. He is part of it. We are not doing him a favor by serving him. He is doing us a favor by giving us an opportunity to do so.
                 </p>
               </div>
             </div>
@@ -131,15 +131,15 @@
             <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
               <div class="services-list">
                 {% for item in search_todo %}
-                <a href="#">{{ item.service_name }} Service</a>
+                <a href="#{{ item.service_name }}">{{ item.service_name }} Service</a>
                 {% endfor %}
               </div>
             </div>
 
             <div class="col-lg-9" data-aos="fade-up" data-aos-delay="200">
               {% for item in search_todo %}
-              <div class="overview mt-4">
-                <h3 class="mt-3 mb-3" style = "margin-left:10px;">{{ item.service_name }} Service</h3>
+              <div class="overview mt-4" id = "{{ item.service_name }}" >
+                <h3 class="mt-3 mb-3 "style = "margin-left:10px;">{{ item.service_name }} Service</h3>
                 <div class="container mt-3">
                   <div class="row gy-4">
                     <div class="col-lg-4">
@@ -195,8 +195,8 @@
       <div class="container footer-top">
         <div class="row gy-4">
           <div class="col-lg-5 col-md-12 footer-about">
-            <a href="index.html" class="logo d-flex align-items-center">
-              <span class="sitename">Easy Shop</span>
+            <a href="/" class="logo d-flex align-items-center">
+              <span class="sitename">Shongjog</span>
             </a>
             <p>
               Cras fermentum odio eu feugiat lide par naso tierra. Justo eget

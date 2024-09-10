@@ -23,7 +23,8 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('' , views.home),
-    path('all_services/' , include('all_services.urls'))
+    path('all_services/' , include('all_services.urls')),
+    path('seba/' , include('seba.urls'))
     
 ]
 if settings.DEBUG: urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
