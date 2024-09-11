@@ -246,14 +246,14 @@
                             <div class="faq-item faq-item1">
                               <h3>
                                 {% if item.question %}
-                                  <span class="num">1.</span>
-                                  <span> How do I hire a nurse through Sheba.xyz?</span>
+                                  <span class="num">{{item.id}}</span>
+                                  <span> {{item.question}}</span>
                                 {% endif %}
                               </h3>
                               <div class="faq-content">
-                                {% if item.question %}
+                                {% if item.answer %}
                                   <p>
-                                      You can visit our app, website, and Facebook page to book an order or call our call center at 16516 for support from our call center executives. We’ll match you with suitable candidates.
+                                      {{item.answer}}
                                   </p>
                                 {% endif %}
                               </div>
