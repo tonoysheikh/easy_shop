@@ -5,5 +5,6 @@ from django.conf import settings
 
 urlpatterns = [
     path('' , views.all_services),
+    path('<int:pk>/' , views.seba , name='seba'),
 ]
 

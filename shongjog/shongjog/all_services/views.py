@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Services
+from .models import ServiceItem
+from .models import FAQ
 
 def all_services(request):
     
@@ -9,4 +11,13 @@ def all_services(request):
     }
     return render(request, "all_services.html", context)
 
-
+def seba(request, pk):
+    serviceitem = ServiceItem.objects.get(pk=pk)
+    print(serviceitem)
+    print(pk)
+    faqs = FAQ.objects.filter(pk = pk) 
+    context = {
+        'serviceitem': serviceitem,
+        'faqs': faqs
+    }
+    return render(request, "seba.html", context)

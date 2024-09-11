@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +10,7 @@
   <meta name="keywords" content="">
 
 
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="/static/assets/img/favicon.png" rel="icon">
 
   
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -17,90 +18,180 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="/static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   
-  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="/static/assets/css/main.css" rel="stylesheet">
 
 </head>
 
 <body class="service-details-page">
 
   <header id="header" class="header fixed-top">
-    <div class="topbar d-flex align-items-center">
-      <div
-        class="container d-flex justify-content-center justify-content-md-between"
-      >
-        <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope d-flex align-items-center"
-            ><a href="mailto:contact@example.com">contact@example.com</a></i
-          >
-          <i class="bi bi-phone d-flex align-items-center ms-4"
-            ><span>+880 XXXX XXXX XX</span></i
-          >
-        </div>
-        <div class="social-links d-none d-md-flex align-items-center">
-          <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-        </div>
-      </div>
-    </div>
-    
 
     <div class="branding d-flex align-items-cente">
       <div
         class="container position-relative d-flex align-items-center justify-content-between"
       >
-        <a href="index.html" class="logo d-flex align-items-center">
+        <a href="/" class="logo d-flex align-items-center">
           
-          <h1 class="sitename"><img src="./assets/img/logo.png" alt=""></h1>
+          <h1 class="sitename"><img src="/static/assets/img/logo.png" alt=""></h1>
         </a>
 
         <nav id="navmenu" class="navmenu">
           <ul>
             <li>
-              <a href="#hero" class="active">Home<br /></a>
+              <div class="input-group">
+                <form method="GET" class = "service-form" style = "width:150vh;text-align:center;">
+                  <input
+                    type="text"
+                    class="input"
+                    id="text"
+                    name="text"
+                    placeholder="Search...."
+                    autocomplete="off"
+                    value="{{ request.GET.search }}" 
+                  />
+                  <input class="button--submit" value="Search" type="submit" />
+              </form>
+              </div>
             </li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">All Services</a></li>
-          <li><a href="#pricing">Membership</a></li>
-          <li><a href="#contact">Contact us</a></li>
-          <li><a href="#contact">LogIn</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
       </div>
     </div>
+
+    <div class="topbar d-flex align-items-center">
+      <div
+        class="container d-flex justify-content-center justify-content-md-between"
+      >
+        
+        <div class="social-links d-none d-md-flex align-items-center">
+          <nav class="navbar navbar-expand-lg navbar-light ">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">All services</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown link
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
+                      <li><a  class="dropdown-item item_service" href="#">Action</a></li>
+                      <li><a  class="dropdown-item item_service" href="#">Another action</a></li>
+                      <li><a  class="dropdown-item item_service" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown link
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item item_service" href="#">Action</a></li>
+                      <li><a class="dropdown-item item_service" href="#">Another action</a></li>
+                      <li><a class="dropdown-item item_service" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown link
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item item_service" href="#">Action</a></li>
+                      <li><a class="dropdown-item item_service" href="#">Another action</a></li>
+                      <li><a class="dropdown-item item_service" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown link
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item item_service" href="#">Action</a></li>
+                      <li><a class="dropdown-item item_service" href="#">Another action</a></li>
+                      <li><a class="dropdown-item item_service" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown link
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item item_service" href="#">Action</a></li>
+                      <li><a class="dropdown-item item_service" href="#">Another action</a></li>
+                      <li><a class="dropdown-item item_service" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown link
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item item_service" href="#">Action</a></li>
+                      <li><a class="dropdown-item item_service" href="#">Another action</a></li>
+                      <li><a class="dropdown-item item_service" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown link
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item item_service" href="#">Action</a></li>
+                      <li><a class="dropdown-item item_service" href="#">Another action</a></li>
+                      <li><a class="dropdown-item item_service" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    
+
   </header>
 
   <main class="main">
 
     <div class="page-title">
-      <div class="heading" style = "background-image: url(https://wallpapercave.com/wp/wp7566265.jpg)">
-        <div class="container" >
+      <div class="heading" style="background-image: url(https://wallpapercave.com/wp/wp7566265.jpg)">
+        <div class="container">
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
-              <h1>Service Details</h1>
-              <p class="mb-0">Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
+              <!-- Displaying the service name -->
+              <h1>{{ serviceitem.service_name }}</h1>
+              <p class="mb-0">
+                {{ serviceitem.service_description}}
+              </p>
             </div>
           </div>
         </div>
       </div>
+      
+      <!-- Breadcrumbs section -->
       <nav class="breadcrumbs">
         <div class="container">
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Service Details</li>
+            <li><a href="/">Home</a></li>
+            <li class="current">{{ serviceitem.service_name }}</li> <!-- Correct variable name -->
           </ol>
         </div>
       </nav>
     </div>
+    
 
     
     <section id="service-details" class="service-details section">
@@ -126,7 +217,7 @@
             
             <div class="overview">
                 <h3>Service Overview</h3>
-                <h4 class="overview-title">Including service in Nursing</h4>
+                <h4 class="overview-title">Including service in {{serviceitem.service_name}}</h4>
                 <ul class="seba">
                     <li>Diagnose Illnesses: Nurses can assess the illness but they can not Diagnose Medical Conditions. This is done by doctors.</li>
                     <li>Prescribe Medications: Most nurses cannot prescribe drugs</li>
@@ -135,7 +226,7 @@
                     <li>Coordination and Communication: Liaises with providers, updates family, and keeps care records.</li>
                 </ul>
 
-                <h4>Excluded service in Nursing</h4>
+                <h4>Excluded service in {{serviceitem.service_name}}</h4>
                 <ul class="seba">
                 <li>Aut eum totam accusantium voluptatem.</li>
                 <li>Assumenda et porro nisi nihil nesciunt voluptatibus.</li>
@@ -151,33 +242,24 @@
             
                         <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200" style="margin-top:50px">
                           <div class="faq-container">
-
+                            {% for item in faqs %}
                             <div class="faq-item faq-item1">
                               <h3>
-                                <span class="num">1.</span>
-                                <span> How do I hire a nurse through Sheba.xyz?</span>
+                                {% if item.question %}
+                                  <span class="num">1.</span>
+                                  <span> How do I hire a nurse through Sheba.xyz?</span>
+                                {% endif %}
                               </h3>
                               <div class="faq-content">
-                                <p>
-                                    You can visit our app, website, and Facebook page to book an order or call our call center at 16516 for support from our call center executives. We’ll match you with suitable candidates.
-                                </p>
+                                {% if item.question %}
+                                  <p>
+                                      You can visit our app, website, and Facebook page to book an order or call our call center at 16516 for support from our call center executives. We’ll match you with suitable candidates.
+                                  </p>
+                                {% endif %}
                               </div>
                               
                             </div>
-
-                            <div class="faq-item faq-item1">
-                                <h3>
-                                  <span class="num">2.</span>
-                                  <span> 
-                                    What services do your nurses provide?
-                                  </span>
-                                </h3>
-                                <div class="faq-content">
-                                  <p>
-                                    Our nurses are certified and have undergone extensive training, including BLS and ACLS certifications. They also have specialized training in various medical fields.
-                                </div>
-                                
-                              </div>
+                            {% endfor %}
                             
                           </div>
                         </div>
@@ -211,8 +293,8 @@
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Easy Shop</span>
+          <a href="/" class="logo d-flex align-items-center">
+            <span class="sitename">Shongjog</span>
           </a>
           <p>
             Cras fermentum odio eu feugiat lide par naso tierra. Justo eget
@@ -283,13 +365,13 @@
   <div id="preloader"></div>
 
   
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/assets/vendor/aos/aos.js"></script>
+  <script src="/static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/static/assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   
-  <script src="assets/js/main.js"></script>
+  <script src="/static/assets/js/main.js"></script>
 
 </body>
 

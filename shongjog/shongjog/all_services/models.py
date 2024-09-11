@@ -1,8 +1,18 @@
 from django.db import models
 
 # Create your models here.
+
+class FAQ(models.Model):
+    question = models.CharField(max_length=500)
+    answer = models.TextField()
+    services = models.ForeignKey('ServiceItem', related_name='faq', on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.question
+    
 class ServiceItem(models.Model):
     service_name = models.CharField(max_length=200)
+    service_description = models.TextField(null= True , blank=True)
     services = models.ForeignKey('Services', related_name='service_items', on_delete=models.CASCADE)
 
     def __str__(self):

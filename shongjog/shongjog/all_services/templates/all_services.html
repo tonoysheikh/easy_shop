@@ -177,7 +177,9 @@
                     <div class="row gy-4">
                       {% for ls in item.service_items.all %}
                       <div class="col-lg-4">
-                        <li>{{ ls.service_name }}</li>
+                        <a href="{% url 'seba' ls.id %}">
+                          <li>{{ ls.service_name }}</li>
+                        </a>
                       </div>
                       {% endfor %}
                     </div>
