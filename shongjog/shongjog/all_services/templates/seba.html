@@ -202,51 +202,47 @@
 
           <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
             <div class="services-list">
-              <a href="#" class="active">Web Design</a>
-              <a href="#">Software Development</a>
-              <a href="#">Product Management</a>
-              <a href="#">Graphic Design</a>
-              <a href="#">Marketing</a>
-            </div>
-
-        
-            
+              <a href="#overview-location" class="active">Service Overview</a>
+              <a href="#faq-location">FAQ</a>
+              <a href="#order-location">How to order</a>
+              <a href="#">Search Profile</a>
+            </div>  
           </div>
 
-          <div class="col-lg-9" data-aos="fade-up" data-aos-delay="200">
+          <div id = "overview-location" class="col-lg-9" data-aos="fade-up" data-aos-delay="200">
             
             <div class="overview">
                 <h3>Service Overview</h3>
                 <h4 class="overview-title">Including service in {{serviceitem.service_name}}</h4>
                 <ul class="seba">
-                    <li>Diagnose Illnesses: Nurses can assess the illness but they can not Diagnose Medical Conditions. This is done by doctors.</li>
-                    <li>Prescribe Medications: Most nurses cannot prescribe drugs</li>
-                    <li>Daily Living Assistance: Helps with bathing, grooming, feeding, dressing, and mobility.</li>
-                    <li>Specialized Services: Provides terminal care, post-surgical recovery, dementia support, and companionship.</li>
-                    <li>Coordination and Communication: Liaises with providers, updates family, and keeps care records.</li>
+                  {% for item in include_ls %}
+                    {% if item.ls %}
+                      <li>{{item.ls}}</li>
+                    {% endif %}
+                  {% endfor %}
                 </ul>
 
                 <h4>Excluded service in {{serviceitem.service_name}}</h4>
                 <ul class="seba">
-                <li>Aut eum totam accusantium voluptatem.</li>
-                <li>Assumenda et porro nisi nihil nesciunt voluptatibus.</li>
-                <li>Ullamco laboris nisi ut aliquip ex ea</li>
+                  {% for item in exclude_ls %}
+                    {% if item.ls %}
+                      <li>{{item.ls }}</li>
+                    {% endif %}
+                  {% endfor %}
                 </ul>
             </div>
-            <div class="faq-part">
+            <div class="faq-part" id = "faq-location">
                 <h3>FAQ</h3>
                 <section id="faq" class="faq section faq-mod">
                     <div class="container" style="margin-left:-10px;">
                       <div class="row gy-4">
-                        
-            
                         <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200" style="margin-top:50px">
                           <div class="faq-container">
                             {% for item in faqs %}
                             <div class="faq-item faq-item1">
                               <h3>
                                 {% if item.question %}
-                                  <span class="num">{{item.id}}</span>
+                                  <span class="num">{{item.id}} .</span>
                                   <span> {{item.question}}</span>
                                 {% endif %}
                               </h3>
@@ -267,7 +263,7 @@
                     </div>
                   </section>
 
-                  <div class="faq-order">
+                  <div class="faq-order" id = "order-location">
                     <h3 class="faq-order-title">How to order</h3>
                     <h5 class="faq-oder-title">Select service</h5>
                     <p>From the category, select the service you are looking for.</p>
