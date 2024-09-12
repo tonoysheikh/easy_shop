@@ -19,10 +19,17 @@ from django.urls import path , include
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
+from django.contrib.auth import views as auth_views
+from .views import CustomLoginView
+from .views import profile
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('' , views.home),
+    path('register/', views.register, name='register'),
+    path('login/', CustomLoginView.as_view(), name='login'),
+    path('profile/', profile, name='profile'),
     path('all_services/' , include('all_services.urls')), 
 ]
 if settings.DEBUG: urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

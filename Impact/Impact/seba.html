@@ -281,6 +281,72 @@
 
     </section>
 
+    <section>
+      <div class="container">
+        <div class="portfolio-menu mt-4 mb-4 text-align-center">
+          <ul>
+            <li class="btn btn-outline-dark active" data-filter="*">All</li>
+            <li class="btn btn-outline-dark text" data-filter=".hospital">
+              Hospital
+            </li>
+            <li class="btn btn-outline-dark" data-filter=".doctors">Doctors</li>
+            <li class="btn btn-outline-dark text" data-filter=".staff">
+              Staff
+            </li>
+            <li class="btn btn-outline-dark text" data-filter=".icu1">ICU</li>
+            <li class="btn btn-outline-dark text" data-filter=".pharmacy">
+              Pharmacy
+            </li>
+            <li class="btn btn-outline-dark text" data-filter=".event">
+              Events
+            </li>
+            <li class="btn btn-outline-dark" data-filter=".ambolence">
+              Ambolence
+            </li>
+          </ul>
+        </div>
+        <div class="portfolio-item row">
+          <div class="item hospital col-lg-3 col-md-4 col-6 col-sm">
+            <a
+              href="https://t3.ftcdn.net/jpg/02/96/74/64/360_F_296746476_F0wDElEXSb0Rd1tyDnsCBLVBHGAsJm3O.jpg"
+              class="fancylight popup-btn"
+              data-fancybox-group="light"
+            >
+              <img
+                onclick="myFunction()"
+                class="img-fluid" 
+                src="https://t3.ftcdn.net/jpg/02/96/74/64/360_F_296746476_F0wDElEXSb0Rd1tyDnsCBLVBHGAsJm3O.jpg"
+                alt=""
+              />
+            </a>
+          </div>
+          <div class="item doctors col-lg-3 col-md-4 col-6 col-sm">
+            <a
+              href="./assets/img/gallery/d1.jpg" 
+              class="fancylight popup-btn"
+              data-fancybox-group="light"
+            >
+              <img class="img-fluid" src="./assets/img/gallery/d1.jpg" alt="" />
+            </a>
+          </div>
+          <div class="item staff col-lg-3 col-md-4 col-6 col-sm">
+            <a
+              href="./assets/img/gallery/s1.webp"
+              class="fancylight popup-btn"
+              data-fancybox-group="light"
+            >
+              <img
+                class="img-fluid"
+                src="./assets/img/gallery/s1.webp"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
   </main>
 
   <footer id="footer" class="footer accent-background">
@@ -358,7 +424,30 @@
   
   <div id="preloader"></div>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var iso = new Isotope('.portfolio-item', {
+        itemSelector: '.item', 
+        layoutMode: 'fitRows'  
+      });
   
+      // Filter items on button click
+      var filterButtons = document.querySelectorAll('.portfolio-menu li');
+      filterButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          var filterValue = button.getAttribute('data-filter');
+          iso.arrange({ filter: filterValue });
+  
+          // Add active class to the current button
+          filterButtons.forEach(function(btn) {
+            btn.classList.remove('active');
+          });
+          button.classList.add('active');
+        });
+      });
+    });
+  </script>
+  <script src="https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
