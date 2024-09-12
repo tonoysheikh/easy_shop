@@ -2,6 +2,20 @@ from django.db import models
 
 # Create your models here.
 
+class EXCLUDE_SERVICE(models.Model):
+    ls = models.TextField()
+    services = models.ForeignKey('ServiceItem', related_name='exclude_service', on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.ls
+class INCLUDE_SERVICE(models.Model):
+    ls = models.TextField()
+    services = models.ForeignKey('ServiceItem', related_name='include_service', on_delete=models.CASCADE)
+    
+    def  __str__(self):
+        return self.ls
+
+
 class FAQ(models.Model):
     question = models.CharField(max_length=500)
     answer = models.TextField()
