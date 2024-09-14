@@ -30,6 +30,7 @@ urlpatterns = [
     path('login/', CustomLoginView.as_view(), name='login'),
     path('profile/', profile, name='profile'),
     path('all_services/' , include('all_services.urls')), 
+    path('logout/', views.logout_view, name='logout'),
 ]
 if settings.DEBUG: urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

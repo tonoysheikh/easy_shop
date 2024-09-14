@@ -3,6 +3,8 @@ from .forms import RegistrationForm
 from django.contrib.auth.views import LoginView
 from django.shortcuts import get_object_or_404
 from .models import Infomation_Home, Registration  # Add Registration model
+from django.contrib.auth import logout
+
 
 def home(request):
     info_home = get_object_or_404(Infomation_Home)
@@ -28,3 +30,8 @@ def profile(request):
     # Assuming you want to display the user's registration information
     registration = get_object_or_404(Registration, user=request.user)
     return render(request, 'profile.html', {'registration': registration})
+
+def logout_view(request):
+    logout(request)
+    next_page = request.GET.get('next', '/')
+    return redirect(next_page)
