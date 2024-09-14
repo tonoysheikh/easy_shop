@@ -14,6 +14,7 @@ class Registration(models.Model):
     def __str__(self):
         return self.user.username
 
+
 class Infomation_Home(models.Model):
     gmail = models.CharField(max_length=255, blank=True, null=True)
     contact_number = models.CharField(max_length=20)

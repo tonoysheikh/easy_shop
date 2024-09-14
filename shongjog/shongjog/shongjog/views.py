@@ -4,6 +4,8 @@ from django.contrib.auth.views import LoginView
 from django.shortcuts import get_object_or_404
 from .models import Infomation_Home, Registration  # Add Registration model
 from django.contrib.auth import logout
+from .forms import RegistrationForm, UpdateRegistrationForm
+
 
 
 def home(request):
@@ -35,3 +37,14 @@ def logout_view(request):
     logout(request)
     next_page = request.GET.get('next', '/')
     return redirect(next_page)
+
+def update_profile(request):
+    if request.method == 'POST':
+        form = UpdateRegistrationForm(request.POST, request.FILES, instance=request.user.registration)
+        if form.is_valid():
+            form.save()
+            return redirect('/profile')
+    else:
+        form = UpdateRegistrationForm(instance=request.user.registration)
+    
+    return render(request, 'update_profile.html', {'form': form})

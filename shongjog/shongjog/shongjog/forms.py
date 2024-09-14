@@ -6,7 +6,6 @@ from .models import Registration
 from django.forms import ModelChoiceField
 from all_services.models import ServiceItem
 
-
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
     phone_number = forms.CharField(max_length=15)
@@ -37,3 +36,8 @@ class RegistrationForm(UserCreationForm):
         )
         registration.save()
         return user
+
+class UpdateRegistrationForm(forms.ModelForm):
+    class Meta:
+        model = Registration
+        fields = ['phone_number', 'status',  'area', 'picture' ]

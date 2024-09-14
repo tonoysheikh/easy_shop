@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Home - Easy Shop</title>
+    <title>Your Profile - shongjog</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -182,10 +182,9 @@
               <li></li>
                 <a href="#hero" class="active">Home<br/></a>
               </li>
-              <li><a href="#about">About</a></li>
               <li><a href="all_services/">All Services</a></li>
-              <li><a href="#pricing">Membership</a></li>
-              <li><a href="#contact">Contact us</a></li>
+              <li><a href="{% url 'update_profile' %}">Update Profile</a></li>
+              <li><a href="{% url 'logout' %}?next=/" >Logout</a></li>
 
               {% if user.is_authenticated %}
               <li><a href="{% url 'profile' %}">Your Profile</a></li>
@@ -209,11 +208,15 @@
                             <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 mb-4 mb-lg-0">
+                                        {% if  registration.picture  %}
                                         <img style = "width: 300px;height : 300px;" src="{{ registration.picture.url }}" alt="...">
+                                        {% else %}
+                                        <img style = "width: 300px;height : 300px;" src="https://static.vecteezy.com/system/resources/thumbnails/027/951/137/small_2x/stylish-spectacles-guy-3d-avatar-character-illustrations-png.png" alt="...">
+                                        {% endif %}
                                     </div>
                                     <div class="col-lg-6 px-xl-10">
                                         <div class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
-                                            <h3 class="h2 text-white mb-0">{{ registration.user.first_name }} {{ registration.user.last_name }}</h3>
+                                            <h3 class="h2 text-white mb-0">I'm {{ registration.user.first_name }} {{ registration.user.last_name }}</h3>
                                             <span class="text-primary">{{ registration.occupation}}</span>
                                         </div>
                                         <ul class="list-unstyled mb-1-9">
@@ -234,9 +237,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div style="text-align : center;">
-                    <a href="{% url 'logout' %}?next=/" class="btn btn-primary">Logout</a>
                 </div>
                 
             </div>
