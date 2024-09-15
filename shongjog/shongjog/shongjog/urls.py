@@ -28,7 +28,7 @@ urlpatterns = [
     path('' , views.home),
     path('register/', views.register, name='register'),
     path('login/', CustomLoginView.as_view(), name='login'),
-    path('profile/', profile, name='profile'),
+    path('profile/', views.profile, name='profile'),
     path('all_services/' , include('all_services.urls')),
     path('update_profile/', views.update_profile, name='update_profile'), 
     path('logout/', views.logout_view, name='logout'),

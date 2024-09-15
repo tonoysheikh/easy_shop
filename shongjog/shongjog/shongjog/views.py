@@ -11,6 +11,7 @@ from .models import Top_product
 from .models import For_home
 from .models import Recently_view
 from .models import Trending
+from .models import Review
 
 
 
@@ -22,6 +23,7 @@ def home(request):
     for_home = For_home.objects.all()
     recently_view = Recently_view.objects.all()
     trending = Trending.objects.all()
+    review = Review.objects.all()
     context = {
         'info_home': info_home,
         'search_todo' : search_todo,
@@ -29,7 +31,7 @@ def home(request):
         'for_home' : for_home,
         'recently_view' : recently_view,
         'trending'  : trending,
-
+        'review' : review,
     }
     return render(request, "home.html", context)
 

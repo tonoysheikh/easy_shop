@@ -72,8 +72,8 @@
 
           <nav id="navmenu" class="navmenu">
             <ul>
-              <li></li>
-                <a href="#hero" class="active">Home<br/></a>
+              <li>
+                <a href="/" class="active">Home<br/></a>
               </li>
               <li><a href="#about">About</a></li>
               <li><a href="all_services/">All Services</a></li>
@@ -81,7 +81,20 @@
               <li><a href="#contact">Contact us</a></li>
 
               {% if user.is_authenticated %}
-              <li><a href="{% url 'profile' %}">Your Profile</a></li>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown"></div>
+                <ul class="navbar-nav" style="color : white;">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Your Profile
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
+                      <li><a  class="dropdown-item item_service" href="profile/">Profile</a></li>
+                      <li><a  class="dropdown-item item_service" href="{% url 'update_profile' %}">Update Profile</a></li>
+                      <li><a  class="dropdown-item item_service" href="{% url 'logout' %}?next=/">Logout</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
               {% else %}
               <li><a href="{% url 'login' %}">Log In</a></li>
               {% endif %}
@@ -332,7 +345,7 @@
           </div>
         </div>
       </section>
-      
+
       <section id="stats" class="stats section">
         <p class="stats-design">Why Choose US</p>
         <h2 class="stats-design">Because we care about your safety..</h2>
@@ -479,15 +492,16 @@
               }
             </script>
             <div class="swiper-wrapper">
+              {% for item in review %}
               <div class="swiper-slide">
                 <div class="testimonial-item">
-                  <img
-                    src="/static/assets/img/testimonials/testimonials-1.jpg"
+                  <img style = "height:90px;"
+                    src="{{ item.picture.url }}"
                     class="testimonial-img"
                     alt=""
                   />
-                  <h3>Saul Goodman</h3>
-                  <h4>Ceo &amp; Founder</h4>
+                  <h3>{{item.name}}</h3>
+                  <h4>{{item.designation}}</h4>
                   <div class="stars">
                     <i class="bi bi-star-fill"></i
                     ><i class="bi bi-star-fill"></i
@@ -498,131 +512,13 @@
                   <p>
                     <i class="bi bi-quote quote-icon-left"></i>
                     <span
-                      >Proin iaculis purus consequat sem cure digni ssim donec
-                      porttitora entum suscipit rhoncus. Accusantium quam,
-                      ultricies eget id, aliquam eget nibh et. Maecen aliquam,
-                      risus at semper.</span
-                    >
+                      >
+                      {{ item.description }}</span>
                     <i class="bi bi-quote quote-icon-right"></i>
                   </p>
                 </div>
               </div>
-
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <img
-                    src="/static/assets/img/testimonials/testimonials-2.jpg"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>Sara Wilsson</h3>
-                  <h4>Designer</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span
-                      >Export tempor illum tamen malis malis eram quae irure
-                      esse labore quem cillum quid cillum eram malis quorum
-                      velit fore eram velit sunt aliqua noster fugiat irure amet
-                      legam anim culpa.</span
-                    >
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <img
-                    src="/static/assets/img/testimonials/testimonials-3.jpg"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>Jena Karlis</h3>
-                  <h4>Store Owner</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span
-                      >Enim nisi quem export duis labore cillum quae magna enim
-                      sint quorum nulla quem veniam duis minim tempor labore
-                      quem eram duis noster aute amet eram fore quis sint
-                      minim.</span
-                    >
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <img
-                    src="/static/assets/img/testimonials/testimonials-4.jpg"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>Matt Brandon</h3>
-                  <h4>Freelancer</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span
-                      >Fugiat enim eram quae cillum dolore dolor amet nulla
-                      culpa multos export minim fugiat minim velit minim dolor
-                      enim duis veniam ipsum anim magna sunt elit fore quem
-                      dolore labore illum veniam.</span
-                    >
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <img
-                    src="/static/assets/img/testimonials/testimonials-5.jpg"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>John Larson</h3>
-                  <h4>Entrepreneur</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span
-                      >Quis quorum aliqua sint quem legam fore sunt eram irure
-                      aliqua veniam tempor noster veniam enim culpa labore duis
-                      sunt culpa nulla illum cillum fugiat legam esse veniam
-                      culpa fore nisi cillum quid.</span
-                    >
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
+              {% endfor %}
             </div>
             <div class="swiper-pagination"></div>
           </div>

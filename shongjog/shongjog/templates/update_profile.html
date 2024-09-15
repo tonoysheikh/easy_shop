@@ -135,18 +135,19 @@
 
           <nav id="navmenu" class="navmenu">
             <ul>
-              <li></li>
-                <a href="/" class="active">Home<br/></a>
+              <li>
+                <a href="/">Home<br/></a>
               </li>
-              <li><a href="all_services/">All Services</a></li>
-
-              {% if user.is_authenticated %}
-              <li><a href="{% url 'profile' %}">Your Profile</a></li>
-              {% else %}
-              <li><a href="{% url 'login' %}">Log In</a></li>
-              {% endif %}
+              <!-- <li><a href="all_services/">All Services</a></li> -->
+              <!-- {% if user.is_authenticated %} -->
+                <!-- <li><a href="profile/" >Your Profile</a></li> -->
+              <!-- {% else %} -->
+                <!-- <li><a href="{% url 'login' %}">Log In</a></li> -->
+              <!-- {% endif %} -->
+              
+              <li><a href="{% url 'update_profile' %}" class="active">Update Profile</a></li>
+              <li><a href="{% url 'logout' %}?next=/" >Logout</a></li>
             </ul>
-
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
           </nav>
         </div>

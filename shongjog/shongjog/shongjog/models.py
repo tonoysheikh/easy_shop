@@ -42,5 +42,11 @@ class Recently_view(models.Model):
 class Trending(models.Model):
     product = models.ForeignKey(Services, on_delete=models.CASCADE, related_name='trending')
     picture = models.ImageField(upload_to='trending/', blank=True, null=True)
+
+class Review(models.Model):
+    name = models.CharField(max_length=30)
+    designation = models.CharField(max_length = 20)
+    description = models.TextField()
+    picture = models.ImageField(upload_to='review/', blank=True, null=True)
     
     

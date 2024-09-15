@@ -144,7 +144,7 @@
 
     <link href="/static/assets/css/main.css" rel="stylesheet" />
   </head>
-  <body class="index-page"></body>
+  <body class="index-page">
     <header id="header" class="header fixed-top">
       <div class="topbar d-flex align-items-center">
         <div
@@ -179,18 +179,20 @@
 
           <nav id="navmenu" class="navmenu">
             <ul>
-              <li></li>
-                <a href="#hero" class="active">Home<br/></a>
+              <li>
+                <a href="/">Home<br/></a>
               </li>
               <li><a href="all_services/">All Services</a></li>
-              <li><a href="{% url 'update_profile' %}">Update Profile</a></li>
-              <li><a href="{% url 'logout' %}?next=/" >Logout</a></li>
-
               {% if user.is_authenticated %}
               <li><a href="{% url 'profile' %}">Your Profile</a></li>
               {% else %}
               <li><a href="{% url 'login' %}">Log In</a></li>
               {% endif %}
+              
+              <li><a href="{% url 'update_profile' %}">Update Profile</a></li>
+              <li><a href="{% url 'logout' %}?next=/" >Logout</a></li>
+
+              
             </ul>
 
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -242,10 +244,6 @@
             </div>
             
         </section>
-
-        
-    
-    
     </main>
 
     <footer id="footer" class="footer accent-background">
