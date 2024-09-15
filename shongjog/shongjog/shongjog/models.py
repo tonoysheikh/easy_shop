@@ -2,6 +2,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from all_services.models import ServiceItem
+from all_services.models import Services
 
 class Registration(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE , blank=True, null=True)  # Linked with Django's User model
@@ -26,3 +27,20 @@ class Infomation_Home(models.Model):
 
     def __str__(self):
         return self.gmail
+class Top_product(models.Model):
+    product = models.ForeignKey(Services, on_delete=models.CASCADE, related_name='top_product')
+    icon = models.CharField(max_length= 500)
+
+class For_home(models.Model):
+    product = models.ForeignKey(Services, on_delete=models.CASCADE, related_name='For_home')
+    picture = models.ImageField(upload_to='for_pictures/', blank=True, null=True)
+    
+class Recently_view(models.Model):
+    product = models.ForeignKey(Services, on_delete=models.CASCADE, related_name='recently_view')
+    picture = models.ImageField(upload_to='recently_view/', blank=True, null=True)
+    
+class Trending(models.Model):
+    product = models.ForeignKey(Services, on_delete=models.CASCADE, related_name='trending')
+    picture = models.ImageField(upload_to='trending/', blank=True, null=True)
+    
+    

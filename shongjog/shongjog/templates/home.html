@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Home - Easy Shop</title>
+    <title>Home - shongjog</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -151,57 +151,16 @@
         >
           <div class="container position-relative">
             <div class="row gy-4 mt-5">
+              {% for item in top_products|slice:":6" %}
               <div class="col-xl-2 col-md-6">
                 <div class="icon-box">
-                  <div class="icon"><i class="bi bi-easel"></i></div>
+                  <div class="icon"><i class="{{ item.icon }}"></i></div>
                   <h4 class="title">
-                    <a href="" class="stretched-link">Lorem Ipsum</a>
+                    <a href="" class="stretched-link">{{ item.product.service_name }}</a>
                   </h4>
                 </div>
               </div>
-
-              <div class="col-xl-2 col-md-6">
-                <div class="icon-box">
-                  <div class="icon"><i class="bi bi-gem"></i></div>
-                  <h4 class="title">
-                    <a href="" class="stretched-link">Lorem Ipsum</a>
-                  </h4>
-                </div>
-              </div>
-
-              <div class="col-xl-2 col-md-6">
-                <div class="icon-box">
-                  <div class="icon"><i class="bi bi-geo-alt"></i></div>
-                  <h4 class="title">
-                    <a href="" class="stretched-link">Lorem Ipsum</a>
-                  </h4>
-                </div>
-              </div>
-
-              <div class="col-xl-2 col-md-6">
-                <div class="icon-box">
-                  <div class="icon"><i class="bi bi-command"></i></div>
-                  <h4 class="title">
-                    <a href="" class="stretched-link">Lorem Ipsum</a>
-                  </h4>
-                </div>
-              </div>
-              <div class="col-xl-2 col-md-6">
-                <div class="icon-box">
-                  <div class="icon"><i class="bi bi-command"></i></div>
-                  <h4 class="title">
-                    <a href="" class="stretched-link">Lorem Ipsum</a>
-                  </h4>
-                </div>
-              </div>
-              <div class="col-xl-2 col-md-6">
-                <div class="icon-box">
-                  <div class="icon"><i class="bi bi-command"></i></div>
-                  <h4 class="title">
-                    <a href="" class="stretched-link">Lorem Ipsum</a>
-                  </h4>
-                </div>
-              </div>
+              {% endfor %}
             </div>
           </div>
         </div>
@@ -214,6 +173,7 @@
 
         <div class="container">
           <div class="row gy-4">
+            {% for item in for_home|slice:":4" %}
             <div
               class="col-lg-3 col-md-6"
               data-aos="fade-up"
@@ -221,55 +181,17 @@
             >
               <img
                 class="img-fluid"
-                src="https://www.publicdomainpictures.net/pictures/540000/nahled/regenbogen-farbenfroh-himmel.jpg"
+                src="{{ item.picture.url }}"
                 alt=""
               />
-              <h4 class="title title-design">Interior Design</h4>
+              <h4 class="title title-design">{{item.product.service_name}} Service</h4>
             </div>
-
-            <div
-              class="col-lg-3 col-md-6"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              <img
-                class="img-fluid"
-                src="https://www.publicdomainpictures.net/pictures/540000/nahled/regenbogen-farbenfroh-himmel.jpg"
-                alt=""
-              />
-              <p class="title title-design">Exterior Design</p>
-            </div>
-
-            <div
-              class="col-lg-3 col-md-6"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              <img
-                class="img-fluid"
-                src="https://www.publicdomainpictures.net/pictures/540000/nahled/regenbogen-farbenfroh-himmel.jpg"
-                alt=""
-              />
-              <p class="title title-design">Landscape Design</p>
-            </div>
-
-            <div
-              class="col-lg-3 col-md-6"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              <img
-                class="img-fluid"
-                src="https://www.publicdomainpictures.net/pictures/540000/nahled/regenbogen-farbenfroh-himmel.jpg"
-                alt=""
-              />
-              <p class="title title-design">Home Decor</p>
-            </div>
+            {% endfor %}
 
             <div class="container section-title mt-2 pb-2" data-aos="fade-up">
               <h2>Recently View</h2>
             </div>
-
+            {% for item in recently_view|slice:":4" %}
             <div
               class="col-lg-3 col-md-6"
               data-aos="fade-up"
@@ -277,29 +199,17 @@
             >
               <img
                 class="img-fluid"
-                src="https://www.publicdomainpictures.net/pictures/540000/nahled/regenbogen-farbenfroh-himmel.jpg"
+                src="{{ item.picture.url }}"
                 alt=""
               />
-              <p class="title title-design">Exterior Design</p>
+              <p class="title title-design">{{item.product.service_name}} Service</p>
             </div>
-
-            <div
-              class="col-lg-3 col-md-6"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              <img
-                class="img-fluid"
-                src="https://www.publicdomainpictures.net/pictures/540000/nahled/regenbogen-farbenfroh-himmel.jpg"
-                alt=""
-              />
-              <p class="title title-design">Exterior Design</p>
-            </div>
+            {% endfor %}
 
             <div class="container section-title mt-2 pb-2" data-aos="fade-up">
               <h2>Trending</h2>
             </div>
-
+            {% for item in trending|slice:":4" %}
             <div
               class="col-lg-3 col-md-6"
               data-aos="fade-up"
@@ -307,16 +217,17 @@
             >
               <img
                 class="img-fluid"
-                src="https://www.publicdomainpictures.net/pictures/540000/nahled/regenbogen-farbenfroh-himmel.jpg"
+                src="{{ item.picture.url }}"
                 alt=""
               />
-              <p class="title title-design">Exterior Design</p>
+              <p class="title title-design">{{ item.product.service_name }} Service</p>
             </div>
+            {% endfor %}
 
             <div class="container section-title mt-2 pb-2" data-aos="fade-up">
               <h2>Recommended</h2>
             </div>
-
+            {% for item in trending|slice:":4" %}
             <div
               class="col-lg-3 col-md-6"
               data-aos="fade-up"
@@ -324,11 +235,12 @@
             >
               <img
                 class="img-fluid"
-                src="https://www.publicdomainpictures.net/pictures/540000/nahled/regenbogen-farbenfroh-himmel.jpg"
+                src="{{ item.picture.url }}"
                 alt=""
               />
-              <p class="title title-design">Exterior Design</p>
+              <p class="title title-design">{{ item.product.service_name }} Service</p>
             </div>
+            {% endfor %}
           </div>
         </div>
       </section>
@@ -342,14 +254,14 @@
         <div class="container">
           <div class="row gy-4">
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-              <h3 style="text-align: center">Welcome to Easy Shop</h3>
+              <h3 style="text-align: center">Welcome to shongjog</h3>
               <img
                 src="https://img.freepik.com/free-photo/black-friday-elements-assortment_23-2149074075.jpg"
                 class="img-fluid rounded-4 mb-4"
                 alt=""
               />
               <p>
-                At Easy Shop, we are committed to delivering high-quality
+                At shongjog, we are committed to delivering high-quality
                 services we provide web development , consulting,maintenance
                 services tailored to meet your specific needs. Our journey began
                 with a simple goal: to provide reliable and innovative solutions
@@ -358,7 +270,7 @@
               </p>
               <h4>Our Mission</h4>
               <p>
-                Our mission is to [describe your mission, e.g., "offer top-notch
+                Our mission is to
                 services that drive growth and success for our clients"]. We
                 believe in building strong, long-lasting relationships with our
                 clients by offering solutions that are not only effective but
@@ -397,7 +309,7 @@
                   </li>
                 </ul>
                 <p>
-                  Our Story Founded in 2012, Easy Shop has grown from a small
+                  Our Story Founded in 2012, shongjog has grown from a small
                   startup into a reputable service provider, known for our
                   commitment to excellence and customer satisfaction. Our
                   success is driven by our passion for what we do and our
@@ -420,111 +332,7 @@
           </div>
         </div>
       </section>
-
-      <section id="clients" class="clients section">
-        <div class="container section-title" data-aos="fade-up">
-          <h2>Our Sponsor<br /></h2>
-          <p>
-            Happiness is a by-product of an effort to make someone else happy
-          </p>
-        </div>
-        <div class="container">
-          <div class="swiper init-swiper">
-            <script type="application/json" class="swiper-config">
-              {
-                "loop": true,
-                "speed": 600,
-                "autoplay": {
-                  "delay": 5000
-                },
-                "slidesPerView": "auto",
-                "pagination": {
-                  "el": ".swiper-pagination",
-                  "type": "bullets",
-                  "clickable": true
-                },
-                "breakpoints": {
-                  "320": {
-                    "slidesPerView": 2,
-                    "spaceBetween": 40
-                  },
-                  "480": {
-                    "slidesPerView": 3,
-                    "spaceBetween": 60
-                  },
-                  "640": {
-                    "slidesPerView": 4,
-                    "spaceBetween": 80
-                  },
-                  "992": {
-                    "slidesPerView": 6,
-                    "spaceBetween": 120
-                  }
-                }
-              }
-            </script>
-            <div class="swiper-wrapper align-items-center">
-              <div class="swiper-slide">
-                <img
-                  src="/static/assets/img/clients/client-1.png"
-                  class="img-fluid"
-                  alt=""
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="/static/assets/img/clients/client-2.png"
-                  class="img-fluid"
-                  alt=""
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="/static/assets/img/clients/client-3.png"
-                  class="img-fluid"
-                  alt=""
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="/static/assets/img/clients/client-4.png"
-                  class="img-fluid"
-                  alt=""
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="/static/assets/img/clients/client-5.png"
-                  class="img-fluid"
-                  alt=""
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="/static/assets/img/clients/client-6.png"
-                  class="img-fluid"
-                  alt=""
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="/static/assets/img/clients/client-7.png"
-                  class="img-fluid"
-                  alt=""
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="/static/assets/img/clients/client-8.png"
-                  class="img-fluid"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      
       <section id="stats" class="stats section">
         <p class="stats-design">Why Choose US</p>
         <h2 class="stats-design">Because we care about your safety..</h2>
@@ -638,7 +446,7 @@
         <div class="container section-title" data-aos="fade-up">
           <h2>Testimonials</h2>
           <p>
-            Easy shop delivered exceptional service that exceeded our
+            shongjog delivered exceptional service that exceeded our
             expectations
           </p>
         </div>
@@ -1255,7 +1063,7 @@
         <div class="row gy-4">
           <div class="col-lg-5 col-md-12 footer-about">
             <a href="/" class="logo d-flex align-items-center">
-              <span class="sitename">Easy Shop</span>
+              <span class="sitename">shongjog</span>
             </a>
             <p>
               {{ info_home.footer_description }}

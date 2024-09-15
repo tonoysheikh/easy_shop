@@ -5,8 +5,11 @@ from .models import FAQ
 from .models import INCLUDE_SERVICE
 from .models import EXCLUDE_SERVICE
 from shongjog.models import Registration
+from shongjog.models import Infomation_Home
+from django.shortcuts import get_object_or_404
 
 def all_services(request):
+    info_home = get_object_or_404(Infomation_Home)
     search = request.GET.get('text')
     if search:
         search_todo = Services.objects.prefetch_related('service_items').filter(service_name__icontains= search)
@@ -14,10 +17,12 @@ def all_services(request):
         search_todo = Services.objects.prefetch_related('service_items').all()
     context = {
         'search_todo': search_todo,
+        'info_home' : info_home,
     }
     return render(request, "all_services.html", context)
 
 def seba(request, pk):
+    info_home = get_object_or_404(Infomation_Home)
     serviceitem = ServiceItem.objects.get(pk=pk)
     faqs = FAQ.objects.filter(services = serviceitem)  
     include_services = INCLUDE_SERVICE.objects.filter(services = serviceitem)  
@@ -29,6 +34,7 @@ def seba(request, pk):
         'faqs': faqs,
         'include_ls': include_services,
         'exclude_ls': exclude_services,
-        'registrations': registrations
+        'registrations': registrations,
+        'info_home' : info_home,
     }
     return render(request, "seba.html", context)

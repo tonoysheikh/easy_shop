@@ -10,7 +10,69 @@
     <link href="/static/assets/img/favicon.png" rel="icon" />
 
     <link href="https://fonts.googleapis.com" rel="preconnect" />
-
+    <style>
+      body {
+          background-color: #f0f2f5;
+          justify-content: center;
+          align-items: center;
+          margin: 0;
+      }
+      .form-container {
+          background-color: white;
+          padding: 30px;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          width: 100%;
+          margin-top: 20vh;
+          margin-bottom: 5vh;
+      }
+      h2 {
+          text-align: center;
+          margin-bottom: 20px;
+          color: #333;
+      }
+      .form-control {
+          margin-bottom: 15px;
+          width: 100%;
+      }
+      .form-control input, .form-control select {
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+      }
+      .btn-primary {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 50%;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          background-color: #007bff;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+          height: 35px;
+      }
+      .btn-primary:hover {
+          background-color: #0056b3;
+      }
+      .form-footer {
+          text-align: center;
+          margin-top: 50px;
+      }
+      .form-footer a {
+          color: #007bff;
+          text-decoration: none;
+      }
+      .form-footer a:hover {
+          text-decoration: underline;
+      } 
+      .flex-row{
+        display: flex;
+      }
+  </style>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -93,9 +155,9 @@
 
     <main class="main">
 
-        <div class="form-container container">
+        <div class="form-container container mb-5">
                     <h2>Update profile</h2>
-                    <form method="POST" enctype="multipart/form-data">
+                  <form method="POST" enctype="multipart/form-data" style = "height : 200px;">
                         {% csrf_token %}
             
                         <div class="flex-row">
@@ -103,24 +165,23 @@
                                 {{ form.phone_number.label_tag }}
                                 {{ form.phone_number }}
                             </div>
+                            <div class="form-control">
+                              {{ form.status.label_tag }}
+                              {{ form.status }}
+                          </div>
+                          <div class="form-control">
+                              {{ form.area.label_tag }}
+                              {{ form.area }}
+                           </div>
                         </div>
             
-                        <div class="flex-row">
-                            <div class="form-control">
-                                {{ form.status.label_tag }}
-                                {{ form.status }}
-                            </div>
-                            <div class="form-control">
-                                {{ form.area.label_tag }}
-                                {{ form.area }}
-                             </div>
-                        </div>
+                
            
                         <div class="form-control ckbox" >
                              {{ form.picture.label_tag }}
                              {{ form.picture }}
                          </div>
-                    <button class="btn-primary" type="submit">Save</button>
+                    <button class="btn-primary mb-3" type="submit">Save</button>
                 </form>
             </div>
       

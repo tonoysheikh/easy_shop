@@ -5,13 +5,33 @@ from django.shortcuts import get_object_or_404
 from .models import Infomation_Home, Registration  # Add Registration model
 from django.contrib.auth import logout
 from .forms import RegistrationForm, UpdateRegistrationForm
-from django.contrib.auth.decorators import login_required  
+from django.contrib.auth.decorators import login_required 
+from all_services.models import Services
+from .models import Top_product
+from .models import For_home
+from .models import Recently_view
+from .models import Trending
+
 
 
 
 def home(request):
     info_home = get_object_or_404(Infomation_Home)
-    return render(request, "home.html", {"info_home": info_home})
+    search_todo = Services.objects.prefetch_related('service_items').all()
+    top_products = Top_product.objects.all()
+    for_home = For_home.objects.all()
+    recently_view = Recently_view.objects.all()
+    trending = Trending.objects.all()
+    context = {
+        'info_home': info_home,
+        'search_todo' : search_todo,
+        'top_products': top_products,
+        'for_home' : for_home,
+        'recently_view' : recently_view,
+        'trending'  : trending,
+
+    }
+    return render(request, "home.html", context)
 
 def register(request):
     if request.method == 'POST':
