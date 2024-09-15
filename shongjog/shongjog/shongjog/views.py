@@ -13,6 +13,7 @@ from .models import Recently_view
 from .models import Trending
 from .models import Review
 from .models import Contact
+from .models import Recommended
 
 
 
@@ -25,6 +26,7 @@ def home(request):
     recently_view = Recently_view.objects.all()
     trending = Trending.objects.all()
     review = Review.objects.all()
+    recommended = Recommended.objects.all()
     
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -43,6 +45,7 @@ def home(request):
         'recently_view' : recently_view,
         'trending'  : trending,
         'review' : review,
+        'recommended' : recommended,
     }
     return render(request, "home.html", context)
 
