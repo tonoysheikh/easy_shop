@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404
 from .models import Infomation_Home, Registration  # Add Registration model
 from django.contrib.auth import logout
 from .forms import RegistrationForm, UpdateRegistrationForm
+from django.contrib.auth.decorators import login_required  
 
 
 
@@ -33,6 +34,7 @@ def profile(request):
     registration = get_object_or_404(Registration, user=request.user)
     return render(request, 'profile.html', {'registration': registration})
 
+@login_required 
 def logout_view(request):
     logout(request)
     next_page = request.GET.get('next', '/')

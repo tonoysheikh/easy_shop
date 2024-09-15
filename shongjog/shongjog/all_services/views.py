@@ -7,8 +7,11 @@ from .models import EXCLUDE_SERVICE
 from shongjog.models import Registration
 
 def all_services(request):
-    
-    search_todo = Services.objects.prefetch_related('service_items').all()
+    search = request.GET.get('text')
+    if search:
+        search_todo = Services.objects.prefetch_related('service_items').filter(service_name__icontains= search)
+    else :
+        search_todo = Services.objects.prefetch_related('service_items').all()
     context = {
         'search_todo': search_todo,
     }
