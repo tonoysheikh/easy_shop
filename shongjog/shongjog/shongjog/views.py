@@ -12,6 +12,7 @@ from .models import For_home
 from .models import Recently_view
 from .models import Trending
 from .models import Review
+from .models import Contact
 
 
 
@@ -24,6 +25,16 @@ def home(request):
     recently_view = Recently_view.objects.all()
     trending = Trending.objects.all()
     review = Review.objects.all()
+    
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+        
+        contact = Contact(name=name, email=email, subject = subject, message = message)
+        contact.save()
+        
     context = {
         'info_home': info_home,
         'search_todo' : search_todo,

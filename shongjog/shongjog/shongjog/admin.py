@@ -7,6 +7,8 @@ from .models import For_home
 from .models import Recently_view
 from .models import Trending
 from .models import Review
+from .models import Contact
+from .models import Recommended
 
 admin.site.register(Infomation_Home)
 admin.site.register(Registration)
@@ -15,3 +17,5 @@ admin.site.register(For_home)
 admin.site.register(Recently_view)
 admin.site.register(Trending)
 admin.site.register(Review)
+admin.site.register(Contact)
+admin.site.register(Recommended)

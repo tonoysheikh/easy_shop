@@ -42,6 +42,10 @@ class Recently_view(models.Model):
 class Trending(models.Model):
     product = models.ForeignKey(Services, on_delete=models.CASCADE, related_name='trending')
     picture = models.ImageField(upload_to='trending/', blank=True, null=True)
+    
+class Recommended(models.Model):
+    product = models.ForeignKey(Services, on_delete=models.CASCADE, related_name='recommended')
+    picture = models.ImageField(upload_to='recommended/', blank=True, null=True)
 
 class Review(models.Model):
     name = models.CharField(max_length=30)
@@ -49,4 +53,11 @@ class Review(models.Model):
     description = models.TextField()
     picture = models.ImageField(upload_to='review/', blank=True, null=True)
     
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
+    subject = models.CharField(max_length=100)
+    message = models.TextField()
     
+    def __str__(self):
+        return self.name  
