@@ -13,7 +13,7 @@ class Registration(models.Model):
     picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
 
     def __str__(self):
-        return self.user.username
+        return self.occupation
 
 
 class Infomation_Home(models.Model):

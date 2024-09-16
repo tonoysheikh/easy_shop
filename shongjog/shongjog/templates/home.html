@@ -240,7 +240,7 @@
             <div class="container section-title mt-2 pb-2" data-aos="fade-up">
               <h2>Recommended</h2>
             </div>
-            {% for item in trending|slice:":4" %}
+            {% for item in recommended|slice:":4" %}
             <div
               class="col-lg-3 col-md-6"
               data-aos="fade-up"
@@ -1008,7 +1008,7 @@
           <strong class="px-1 sitename">{{ info_home.copyright }}</strong>
           <span>All Rights Reserved</span>
         </p>
-        <div class="credits">Designed by <a href="">S{{ info_home.design }}</a></div>
+        <div class="credits">Designed by <a href="">{{ info_home.design }}</a></div>
       </div>
     </footer>
 
