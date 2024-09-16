@@ -28,6 +28,7 @@ def seba(request, pk):
     include_services = INCLUDE_SERVICE.objects.filter(services = serviceitem)  
     exclude_services = EXCLUDE_SERVICE.objects.filter(services = serviceitem) 
     registrations = Registration.objects.all()
+    search_todo = Services.objects.prefetch_related('service_items').all()
 
     context = {
         'serviceitem': serviceitem,
@@ -36,5 +37,7 @@ def seba(request, pk):
         'exclude_ls': exclude_services,
         'registrations': registrations,
         'info_home' : info_home,
+        'search_todo': search_todo,
+
     }
     return render(request, "seba.html", context)

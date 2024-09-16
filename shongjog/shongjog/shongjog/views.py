@@ -68,7 +68,13 @@ class CustomLoginView(LoginView):
 def profile(request):
     # Assuming you want to display the user's registration information
     registration = get_object_or_404(Registration, user=request.user)
-    return render(request, 'profile.html', {'registration': registration})
+    info_home = get_object_or_404(Infomation_Home)
+
+    context = {
+        'registration': registration,
+        'info_home': info_home,
+    }
+    return render(request, 'profile.html', context)
 
 @login_required 
 def logout_view(request):
@@ -85,4 +91,11 @@ def update_profile(request):
     else:
         form = UpdateRegistrationForm(instance=request.user.registration)
     
-    return render(request, 'update_profile.html', {'form': form})
+    
+    info_home = get_object_or_404(Infomation_Home)
+    context = {
+        'info_home': info_home,
+        'form': form,
+    }
+    
+    return render(request, 'update_profile.html', context)

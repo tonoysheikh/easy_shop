@@ -169,7 +169,7 @@
                 <div class="icon-box">
                   <div class="icon"><i class="{{ item.icon }}"></i></div>
                   <h4 class="title">
-                    <a href="" class="stretched-link">{{ item.product.service_name }}</a>
+                    <a href="/all_services/?text={{ item.product.service_name }}#{{ item.product.service_name }}/" class="stretched-link">{{ item.product.service_name }}</a>
                   </h4>
                 </div>
               </div>
@@ -197,7 +197,7 @@
                 src="{{ item.picture.url }}"
                 alt=""
               />
-              <h4 class="title title-design">{{item.product.service_name}} Service</h4>
+              <h4 class="title title-design"><a style = "color:black;" href="/all_services/?text={{ item.product.service_name }}#{{ item.product.service_name }}/">{{item.product.service_name}} Service</a></h4>
             </div>
             {% endfor %}
 
@@ -215,7 +215,7 @@
                 src="{{ item.picture.url }}"
                 alt=""
               />
-              <p class="title title-design">{{item.product.service_name}} Service</p>
+              <p class="title title-design"><a style = "color:black;" href="/all_services/?text={{ item.product.service_name }}#{{ item.product.service_name }}/">{{item.product.service_name}} Service</a></p>
             </div>
             {% endfor %}
 
@@ -233,7 +233,7 @@
                 src="{{ item.picture.url }}"
                 alt=""
               />
-              <p class="title title-design">{{ item.product.service_name }} Service</p>
+              <p class="title title-design"><a style = "color:black;" href="/all_services/?text={{ item.product.service_name }}#{{ item.product.service_name }}/">{{ item.product.service_name }} Service</a></p>
             </div>
             {% endfor %}
 
@@ -251,7 +251,7 @@
                 src="{{ item.picture.url }}"
                 alt=""
               />
-              <p class="title title-design">{{ item.product.service_name }} Service</p>
+              <p class="title title-design"><a style = "color:black;" href="/all_services/?text={{ item.product.service_name }}#{{ item.product.service_name }}/">{{ item.product.service_name }} Service</a></p>
             </div>
             {% endfor %}
           </div>
@@ -550,10 +550,10 @@
                 <h4>Md.Shamsul Husain</h4>
                 <span>Web Development</span>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href="https://x.com/account/switch"><i class="bi bi-twitter-x"></i></a>
+                  <a href="https://www.facebook.com/Md.Shamsul.Husain?mibextid=ZbWKwL"><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.instagram.com/md.shamsulhusain?igsh=cjdyZnVkM2wzbTQ1"><i class="bi bi-instagram"></i></a>
+                  <a href="https://www.linkedin.com/in/md-shamsul-husain-3457a3147?trk=contact-info"><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
             </div>
@@ -573,9 +573,9 @@
                 <span>Marketing</span>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.facebook.com/rabiulislam724?mibextid=ZbWKwL"><i class="bi bi-facebook"></i></a>
                   <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.linkedin.com/in/md-rabiul-islam-6a775b2a7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
             </div>
@@ -596,8 +596,8 @@
                 <span>Content</span>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href="https://www.facebook.com/sumya094"><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.instagram.com/sumyasumu011"><i class="bi bi-instagram"></i></a>
                   <a href=""><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
@@ -619,9 +619,9 @@
                 <span>Accountant</span>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.facebook.com/sadiaalom.moni"><i class="bi bi-facebook"></i></a>
                   <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.linkedin.com/in/monoara-moni-559ba5320/"><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
             </div>
@@ -980,13 +980,11 @@
 
           <div class="col-lg-2 col-6 footer-links">
             <h4>Our Services</h4>
+            {% for item in search_todo|slice:":5" %}
             <ul>
-              <li><a href="#">Web Design</a></li>
-              <li><a href="#">Web Development</a></li>
-              <li><a href="#">Product Management</a></li>
-              <li><a href="#">Marketing</a></li>
-              <li><a href="#">Graphic Design</a></li>
+              <li style = "padding-bottom: 20px;"><a href="/all_services/?text={{ item.service_name }}#{{ item.service_name }}/">{{ item.service_name }}</a></li>
             </ul>
+            {% endfor %}
           </div>
 
           <div

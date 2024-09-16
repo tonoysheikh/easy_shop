@@ -198,10 +198,10 @@
         <div class="row gy-4">
           <div class="col-lg-5 col-md-12 footer-about">
             <a href="/" class="logo d-flex align-items-center">
-              <span class="sitename">Shongjog</span>
+              <span class="sitename">shongjog</span>
             </a>
             <p>
-              {{info_home.footer_description}}
+              {{ info_home.footer_description }}
             </p>
             <div class="social-links d-flex mt-4">
               <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -224,24 +224,22 @@
 
           <div class="col-lg-2 col-6 footer-links">
             <h4>Our Services</h4>
+            {% for item in search_todo|slice:":5" %}
             <ul>
-              <li><a href="#">Web Design</a></li>
-              <li><a href="#">Web Development</a></li>
-              <li><a href="#">Product Management</a></li>
-              <li><a href="#">Marketing</a></li>
-              <li><a href="#">Graphic Design</a></li>
+              <li style = "padding-bottom: 20px;"><a href="/all_services/?text={{ item.service_name }}#{{ item.service_name }}/">{{ item.service_name }}</a></li>
             </ul>
+            {% endfor %}
           </div>
 
           <div
             class="col-lg-3 col-md-12 footer-contact text-center text-md-start"
           >
             <h4>Contact Us</h4>
-            <p>{{info_home.address}}</p>
-            <p class="mt-2">
-              <strong>Phone:</strong> <span>{{info_home.contact_number}}</span>
+            <p>{{ info_home.address }}</p>
+            <p class="mt-1">
+              <strong>Phone:</strong> <span>{{ info_home.contact_number }}</span>
             </p>
-            <p><strong>Email:</strong> <span>{{info_home.gmail}}</span></p>
+            <p><strong>Email:</strong> <span>{{ info_home.gmail }}</span></p>
           </div>
         </div>
       </div>
@@ -249,10 +247,10 @@
       <div class="container copyright text-center mt-4">
         <p>
           © <span>Copyright</span>
-          <strong class="px-1 sitename">{{info_home.copyright}}</strong>
+          <strong class="px-1 sitename">{{ info_home.copyright }}</strong>
           <span>All Rights Reserved</span>
         </p>
-        <div class="credits">Designed by <a href="">{{info_home.design}}</a></div>
+        <div class="credits">Designed by <a href="">{{ info_home.design }}</a></div>
       </div>
     </footer>
 
