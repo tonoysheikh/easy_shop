@@ -14,8 +14,7 @@ from .models import Trending
 from .models import Review
 from .models import Contact
 from .models import Recommended
-
-
+from .models import order
 
 
 def home(request):
@@ -27,6 +26,7 @@ def home(request):
     trending = Trending.objects.all()
     review = Review.objects.all()
     recommended = Recommended.objects.all()
+    orders = order.objects.all()
     
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -46,6 +46,7 @@ def home(request):
         'trending'  : trending,
         'review' : review,
         'recommended' : recommended,
+        'orders' : orders,
     }
     return render(request, "home.html", context)
 
@@ -57,8 +58,15 @@ def register(request):
             return redirect('/login')
     else:
         form = RegistrationForm()
+    info_home = get_object_or_404(Infomation_Home)
+    search_todo = Services.objects.prefetch_related('service_items').all()
     
-    return render(request, 'register.html', {'form': form})
+    context = {
+        'form': form,
+        'info_home': info_home,
+        'search_todo' : search_todo,
+    }
+    return render(request, 'register.html', context)
 
 
 class CustomLoginView(LoginView):
@@ -66,13 +74,14 @@ class CustomLoginView(LoginView):
     
 
 def profile(request):
-    # Assuming you want to display the user's registration information
     registration = get_object_or_404(Registration, user=request.user)
     info_home = get_object_or_404(Infomation_Home)
+    search_todo = Services.objects.prefetch_related('service_items').all()
 
     context = {
         'registration': registration,
         'info_home': info_home,
+        'search_todo' : search_todo,
     }
     return render(request, 'profile.html', context)
 
@@ -93,9 +102,11 @@ def update_profile(request):
     
     
     info_home = get_object_or_404(Infomation_Home)
+    search_todo = Services.objects.prefetch_related('service_items').all()
     context = {
         'info_home': info_home,
         'form': form,
+        'search_todo' :search_todo,
     }
     
     return render(request, 'update_profile.html', context)

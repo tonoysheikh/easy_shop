@@ -47,18 +47,28 @@
           <ul>
             <li>
               <div class="input-group">
-                <form method="GET" class = "service-form" style = "width:150vh;text-align:center;">
-                  <input
-                    type="text"
-                    class="input"
-                    id="text"
-                    name="text"
-                    placeholder="Search...."
-                    autocomplete="off"
-                    value="{{ request.GET.search }}" 
-                  />
-                  <input class="button--submit" value="Search" type="submit" />
-              </form>
+              <li>
+                <a href="/" class="active">Home<br/></a>
+              </li>
+              <li><a href="/all_services/">All Services</a></li>
+            {% if user.is_authenticated %}
+            <div class="collapse navbar-collapse" id="navbarNavDropdown"></div>
+              <ul class="navbar-nav" style="color : white;">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Your Profile
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
+                    <li><a  class="dropdown-item item_service" href="{% url 'profile' %}">Profile</a></li>
+                    <li><a  class="dropdown-item item_service" href="{% url 'update_profile' %}">Update Profile</a></li>
+                    <li><a  class="dropdown-item item_service" href="{% url 'logout' %}?next=/">Logout</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            {% else %}
+            <li><a href="{% url 'login' %}">Log In</a></li>
+            {% endif %}
               </div>
             </li>
           </ul>
@@ -146,7 +156,7 @@
               <a href="#overview-location" class="active">Service Overview</a>
               <a href="#faq-location">FAQ</a>
               <a href="#order-location">How to order</a>
-              <a href="#">Service Provider</a>
+              <a href="#service_provider">Service Provider</a>
             </div>  
           </div>
 
@@ -180,16 +190,16 @@
                         <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200" style="margin-top:50px">
                           <div class="faq-container">
                             {% for item in faqs %}
-                            <div class="faq-item faq-item1">
+                            <div class="faq-item faq-item1 faq-active">
                               <h3>
                                 {% if item.question %}
                                   <span class="num">{{item.id}} .</span>
-                                  <span> {{item.question}}</span>
+                                  <span > {{item.question}}</span>
                                 {% endif %}
                               </h3>
                               <div class="faq-content">
                                 {% if item.answer %}
-                                  <p>
+                                  <p style = "margin-left: 20px;">
                                       {{item.answer}}
                                   </p>
                                 {% endif %}
@@ -206,12 +216,10 @@
 
                   <div class="faq-order" id = "order-location">
                     <h3 class="faq-order-title">How to order</h3>
-                    <h5 class="faq-oder-title">Select service</h5>
-                    <p>From the category, select the service you are looking for.</p>
-                    <h5 class="faq-oder-title">Select service</h5>
-                    <p>From the category, select the service you are looking for.</p>
-                    <h5 class="faq-oder-title">Select service</h5>
-                    <p>From the category, select the service you are looking for.</p>
+                    {% for item in orders %}
+                    <h5 class="faq-oder-title">{{item.caption}}</h5>
+                    <p>{{item.description}}</p>
+                    {% endfor %}
                   </div>
             </div>
             
@@ -224,7 +232,7 @@
 
     </section>
 
-    <section>
+    <section id = "service_provider">
       <div class="container">
         <h3 style="text-align:center;font-weight:700;" >Service Provider</h3>
         <div class="portfolio-item row">

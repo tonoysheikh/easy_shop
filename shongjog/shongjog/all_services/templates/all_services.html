@@ -75,7 +75,7 @@
             <ul>
               <li>
                 <div class="input-group">
-                  <form method="GET" class = "service-form" style = "width:150vh;text-align:center;">
+                  <form method="GET" class = "service-form" style = "width:120vh;text-align:center;">
                     <input
                       type="text"
                       class="input"
@@ -87,7 +87,29 @@
                     />
                     <input class="button--submit" value="Search" type="submit" />
                 </form>
+                <li>
+                  <a href="/" class="active">Home<br/></a>
+                </li>
+              {% if user.is_authenticated %}
+              <div class="collapse navbar-collapse" id="navbarNavDropdown"></div>
+                <ul class="navbar-nav" style="color : white;">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Your Profile
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
+                      <li><a  class="dropdown-item item_service" href="/profile/">Profile</a></li>
+                      <li><a  class="dropdown-item item_service" href="{% url 'update_profile' %}">Update Profile</a></li>
+                      <li><a  class="dropdown-item item_service" href="{% url 'logout' %}?next=/">Logout</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              {% else %}
+              <li><a href="{% url 'login' %}">Log In</a></li>
+              {% endif %}
                 </div>
+                
               </li>
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>

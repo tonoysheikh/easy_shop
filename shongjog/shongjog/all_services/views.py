@@ -5,6 +5,7 @@ from .models import FAQ
 from .models import INCLUDE_SERVICE
 from .models import EXCLUDE_SERVICE
 from shongjog.models import Registration
+from shongjog.models import order
 from shongjog.models import Infomation_Home
 from django.shortcuts import get_object_or_404
 
@@ -29,6 +30,8 @@ def seba(request, pk):
     exclude_services = EXCLUDE_SERVICE.objects.filter(services = serviceitem) 
     registrations = Registration.objects.all()
     search_todo = Services.objects.prefetch_related('service_items').all()
+    orders = order.objects.all()
+
 
     context = {
         'serviceitem': serviceitem,
@@ -38,6 +41,7 @@ def seba(request, pk):
         'registrations': registrations,
         'info_home' : info_home,
         'search_todo': search_todo,
+        'orders' : orders,
 
     }
     return render(request, "seba.html", context)
