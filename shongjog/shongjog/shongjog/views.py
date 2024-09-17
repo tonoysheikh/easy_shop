@@ -71,6 +71,14 @@ def register(request):
 
 class CustomLoginView(LoginView):
     template_name = 'login.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['info_home'] = get_object_or_404(Infomation_Home)
+        context['search_todo'] = Services.objects.prefetch_related('service_items').all()
+        return context
+
+    
     
 
 def profile(request):
@@ -90,6 +98,7 @@ def logout_view(request):
     logout(request)
     next_page = request.GET.get('next', '/')
     return redirect(next_page)
+    
 
 def update_profile(request):
     if request.method == 'POST':

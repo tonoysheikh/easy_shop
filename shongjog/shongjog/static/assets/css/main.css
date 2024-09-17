@@ -6,24 +6,24 @@
   --nav-font: "Poppins", sans-serif;
 }
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+
 :root {
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #222222; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #172a28; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #004d91; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --background-color: #ffffff;
+  --default-color: #222222;
+  --heading-color: #172a28;
+  --accent-color: #004d91;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
 }
 
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+
 :root {
-  --nav-color: #ffffff; /* The default color of the main navmenu links */
-  --nav-hover-color: #008374; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #01433c; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #008374; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: #ffffff;
+  --nav-hover-color: #008374;
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #01433c;
+  --nav-dropdown-hover-color: #008374;
 }
 
 .light-background {
@@ -48,14 +48,12 @@
   --contrast-color: #ffffff;
 }
 
-/* Smooth scroll */
+
 :root {
   scroll-behavior: smooth;
 }
 
-/*--------------------------------------------------------------
-# General Styling & Shared Classes
---------------------------------------------------------------*/
+
 body {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -83,8 +81,7 @@ h6 {
   font-family: var(--heading-font);
 }
 
-/* Pulsating Play Button
-------------------------------*/
+
 .pulsating-play-btn {
   width: 94px;
   height: 94px;
@@ -167,8 +164,7 @@ h6 {
   }
 }
 
-/* PHP Email Form Messages
-------------------------------*/
+
 .php-email-form .error-message {
   display: none;
   background: #df1529;
@@ -219,9 +215,7 @@ h6 {
   }
 }
 
-/*--------------------------------------------------------------
-# Global Header
---------------------------------------------------------------*/
+
 .header {
   --background-color: #004d91;
   --heading-color: #ffffff;
@@ -310,10 +304,8 @@ h6 {
   box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
 }
 
-/*--------------------------------------------------------------
-# Navigation Menu
---------------------------------------------------------------*/
-/* Desktop Navigation */
+
+
 @media (min-width: 1200px) {
   .navmenu {
     padding: 0;
@@ -445,7 +437,7 @@ h6 {
   }
 }
 
-/* Mobile Navigation */
+
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
     color: var(--nav-color);
@@ -571,9 +563,7 @@ h6 {
   }
 }
 
-/*--------------------------------------------------------------
-# Global Footer
---------------------------------------------------------------*/
+
 .footer {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -690,9 +680,7 @@ h6 {
   font-size: 13px;
 }
 
-/*--------------------------------------------------------------
-# Preloader
---------------------------------------------------------------*/
+
 #preloader {
   position: fixed;
   inset: 0;
@@ -725,9 +713,7 @@ h6 {
   }
 }
 
-/*--------------------------------------------------------------
-# Scroll Top Button
---------------------------------------------------------------*/
+
 .scroll-top {
   position: fixed;
   visibility: hidden;
@@ -759,18 +745,14 @@ h6 {
   bottom: 15px;
 }
 
-/*--------------------------------------------------------------
-# Disable aos animation delay on mobile devices
---------------------------------------------------------------*/
+
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
     transition-delay: 0 !important;
   }
 }
 
-/*--------------------------------------------------------------
-# Global Page Titles & Breadcrumbs
---------------------------------------------------------------*/
+
 .page-title {
   --background-color: var(--accent-color);
   --default-color: #fff;
@@ -797,7 +779,7 @@ h6 {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity */
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
@@ -844,9 +826,7 @@ h6 {
   color: color-mix(in srgb, var(--default-color), transparent 50%);
 }
 
-/*--------------------------------------------------------------
-# Global Sections
---------------------------------------------------------------*/
+
 section,
 .section {
   color: var(--default-color);
@@ -863,9 +843,7 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
-# Global Section Titles
---------------------------------------------------------------*/
+
 .section-title {
   text-align: center;
   padding-bottom: 60px;
@@ -897,9 +875,7 @@ section,
   margin-bottom: 0;
 }
 
-/*--------------------------------------------------------------
-# Hero Section
---------------------------------------------------------------*/
+
 .hero {
   width: 100%;
   position: relative;
@@ -1047,9 +1023,7 @@ section,
   color: var(--contrast-color);
 }
 
-/*--------------------------------------------------------------
-# About Section
---------------------------------------------------------------*/
+
 .about h3 {
   font-weight: 700;
   font-size: 28px;
@@ -1088,9 +1062,7 @@ section,
   top: calc(50% - 47px);
 }
 
-/*--------------------------------------------------------------
-# Clients Section
---------------------------------------------------------------*/
+
 .clients .swiper {
   padding: 10px 0;
 }
@@ -1107,9 +1079,7 @@ section,
   transform: scale(1.1);
 }
 
-/*--------------------------------------------------------------
-# Stats Section
---------------------------------------------------------------*/
+
 .stats .stats-item {
   padding: 10px;
   background-color: #f8f9f9e0;
@@ -1137,16 +1107,12 @@ section,
 }
 
 .stats .stats-item p {
-  /* color: color-mix(in srgb, var(--default-color), transparent 40%);
-  padding: 15px 0 0 0;
-  margin: 0; */
+ 
   font-family: var(--heading-font);
-  /* font-size: 14px; */
+ 
 }
 
-/*--------------------------------------------------------------
-# Call To Action Section
---------------------------------------------------------------*/
+
 .call-to-action {
   background-color: transparent;
 }
@@ -1298,9 +1264,7 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
-# Services Section
---------------------------------------------------------------*/
+
 .services .service-item {
   background-color: var(--surface-color);
   padding: 40px;
@@ -1378,9 +1342,7 @@ section,
   color: var(--accent-color);
 }
 
-/*--------------------------------------------------------------
-# Testimonials Section
---------------------------------------------------------------*/
+
 .testimonials .testimonial-item {
   background-color: var(--surface-color);
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
@@ -1481,9 +1443,7 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
-# Portfolio Section
---------------------------------------------------------------*/
+
 .portfolio .portfolio-filters {
   padding: 0 0 20px 0;
   margin: 0 auto;
@@ -1570,9 +1530,7 @@ section,
   transform: scale(1.1);
 }
 
-/*--------------------------------------------------------------
-# Team Section
---------------------------------------------------------------*/
+
 .team .member {
   background-color: var(--surface-color);
   box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
@@ -1635,9 +1593,7 @@ section,
   margin: 0 2px;
 }
 
-/*--------------------------------------------------------------
-# Pricing Section
---------------------------------------------------------------*/
+
 .pricing {
   padding: 60px 0 120px 0;
 }
@@ -1784,9 +1740,7 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
-# Faq Section
---------------------------------------------------------------*/
+
 .faq .content h3 {
   font-weight: 400;
   font-size: 34px;
@@ -1873,9 +1827,7 @@ section,
   color: var(--accent-color);
 }
 
-/*--------------------------------------------------------------
-# Recent Posts Section
---------------------------------------------------------------*/
+
 .recent-posts article {
   background: var(--surface-color);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -1930,9 +1882,7 @@ section,
   margin-bottom: 0;
 }
 
-/*--------------------------------------------------------------
-# Contact Section
---------------------------------------------------------------*/
+
 .contact .info-container {
   background-color: var(--accent-color);
   height: 100%;
@@ -2030,9 +1980,7 @@ section,
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
-/*--------------------------------------------------------------
-# Service Details Section
---------------------------------------------------------------*/
+
 .service-details .services-list {
   background-color: var(--surface-color);
   padding: 10px 30px;
@@ -2087,7 +2035,7 @@ section,
 
 .service-details ul li {
   padding: 5px 0;
-  /* display: flex; */
+ 
   align-items: center;
 }
 
@@ -2097,9 +2045,7 @@ section,
   color: var(--accent-color);
 }
 
-/*--------------------------------------------------------------
-# Portfolio Details Section
---------------------------------------------------------------*/
+
 .portfolio-details .portfolio-details-slider img {
   width: 100%;
 }
@@ -2271,13 +2217,9 @@ section,
   padding: 0;
 }
 
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
 
-/*--------------------------------------------------------------
-# Blog Posts Section
---------------------------------------------------------------*/
+
+
 .blog-posts article {
   background-color: var(--surface-color);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -2332,9 +2274,7 @@ section,
   margin-bottom: 0;
 }
 
-/*--------------------------------------------------------------
-# Blog Pagination Section
---------------------------------------------------------------*/
+
 .blog-pagination {
   padding-top: 0;
   color: color-mix(in srgb, var(--default-color), transparent 40%);
@@ -2371,9 +2311,7 @@ section,
   color: var(--contrast-color);
 }
 
-/*--------------------------------------------------------------
-# Blog Details Section
---------------------------------------------------------------*/
+
 .blog-details {
   padding-bottom: 30px;
 }
@@ -2525,9 +2463,7 @@ section,
   padding-left: 5px;
 }
 
-/*--------------------------------------------------------------
-# Blog Author Section
---------------------------------------------------------------*/
+
 .blog-author {
   padding: 10px 0 40px 0;
 }
@@ -2566,9 +2502,7 @@ section,
   margin-bottom: 0;
 }
 
-/*--------------------------------------------------------------
-# Blog Comments Section
---------------------------------------------------------------*/
+
 .blog-comments {
   padding: 10px 0;
 }
@@ -2625,9 +2559,7 @@ section,
   padding-left: 40px;
 }
 
-/*--------------------------------------------------------------
-# Comment Form Section
---------------------------------------------------------------*/
+
 .comment-form {
   padding-top: 10px;
 }
@@ -2706,9 +2638,7 @@ section,
   background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
-/*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
+
 .widgets-container {
   background-color: var(--surface-color);
   padding: 30px;
@@ -2929,7 +2859,7 @@ section,
   margin-top: 30px;
 }
 
-/* From Uiverse.io by alexruix */
+
 .input-group {
   display: flex;
   align-items: center;
@@ -2966,4 +2896,33 @@ section,
 .input:focus-visible {
   border-color: #3898ec;
   outline: none;
+}
+
+#navbarNavDropdown {
+  display: block !important;
+}
+#carouselExampleControls {
+  height: 60vh;
+}
+@media screen and (max-width: 480px) {
+  #carouselExampleControls {
+    height: 30vh;
+  }
+  .img-fluid {
+    width: 100%;
+  }
+  .stats-design {
+    margin-left: 15px !important;
+  }
+  .team .member {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .faq-design {
+    margin-left: 15px !important;
+  }
+  .footer {
+    padding-left: 15px;
+  }
 }
